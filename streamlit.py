@@ -27,7 +27,7 @@ def load_shapefile(shapefile_path):
 # Load shapefiles with caching
 gdf_linden = load_shapefile("hickory_state_rep_merge.shp")
 gdf_crane = load_shapefile("91b9440a853443918ad4c8dfdf52e495.shp")
-gdf1_crane = load_shapefile("gdf1v2.shp")
+gdf1_crane = load_shapefile("gdf1_hickory2.shp")
 gdf1_linden = load_shapefile("gdf1_hickory.shp")
 
 # Set colors
