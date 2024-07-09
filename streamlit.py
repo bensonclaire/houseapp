@@ -43,7 +43,7 @@ fig2 = px.choropleth_mapbox(gdf_linden,
                             hover_name="dis",
                             custom_data=["dis"], 
                             color=gdf_linden['color'],
-                            color_discrete_map={'#514585':'#6F2A3B', '#800000':'#6F2A3B'},
+                            color_discrete_map={'#514585':'#D496A7', '#800000':'#D496A7'},
                             center={"lat": gdf_linden.centroid.y.mean(), "lon": gdf_linden.centroid.x.mean()},
                             opacity=0.5,
                            )
@@ -57,7 +57,7 @@ fig1 = px.choropleth_mapbox(gdf_crane,
                             hover_name="DISTRICTNO",
                             custom_data=["DISTRICTNO"], 
                             color=gdf_crane['color'],
-                            color_discrete_map={'#514585':'#6F2A3B', '#800000':'#6F2A3B'},
+                            color_discrete_map={'#514585':'#D6A0AE', '#800000':'#D6A0AE'},
                             center={"lat": gdf_crane.centroid.y.mean(), "lon": gdf_crane.centroid.x.mean()},
                             opacity=0.5,
                            )
@@ -171,7 +171,7 @@ fig.update_layout(
         t=50,
         pad=4
     ),
-    paper_bgcolor="#F4EBD9",
+    paper_bgcolor="LightSteelBlue",
 )
 
 fig.update_layout(showlegend=False)
@@ -302,7 +302,7 @@ fig.update_layout(
         t=50,
         pad=4
     ),
-    paper_bgcolor="#F4EBD9",
+    paper_bgcolor="LightSteelBlue",
 )
 
 fig.update_layout(showlegend=False)
