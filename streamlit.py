@@ -43,7 +43,7 @@ fig2 = px.choropleth_mapbox(gdf_linden,
                             hover_name="dis",
                             custom_data=["dis"], 
                             color=gdf_linden['color'],
-                            color_discrete_map={'#514585':'#D496A7', '#800000':'#D496A7'},
+                            color_discrete_map={'#514585':'#F7A9BE', '#800000':'#F7A9BE'},
                             center={"lat": gdf_linden.centroid.y.mean(), "lon": gdf_linden.centroid.x.mean()},
                             opacity=0.5,
                            )
@@ -200,7 +200,7 @@ fig1 = px.choropleth_mapbox(gdf1_crane,
                             hover_name="DISTRICTNO",
                             hover_data=["Precinct_L", "DISTRICTNO", "PRECINCTID"],
                             color=gdf1_crane['color'],
-                            color_discrete_map={'#514585':'#F7A9BE', '#800000':'#531F2C'},
+                            color_discrete_map={'#514585':'#F7A9BE', '#800000':'#9F6A9D'},
                             center={"lat": gdf1_crane.centroid.y.mean(), "lon": gdf1_crane.centroid.x.mean()},
                             opacity=0.5,
                            )
@@ -313,14 +313,14 @@ active_tab = st.sidebar.radio("Select Tab", tabs)
 
 # Render Plot tab
 if active_tab == "Map":
-    st.markdown("<h1 style='text-align: center; color:blue;'>Michigan State House Districts</h1><br>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color:LightSteelBlue;'>Michigan State House Districts</h1><br>", unsafe_allow_html=True)
 
-    st.markdown("<h1 style='text-align: center; color:blue; font-size:36px;'>Hickory District Boundaries and Motown Sound FC E1 District Boundaries</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color:#474C6C; font-size:36px;'>Hickory District Boundaries and Motown Sound FC E1 District Boundaries</h1>", unsafe_allow_html=True)
 
     st.plotly_chart(fig3, use_container_width=True, height=1200)
     container = st.container(border=True)
     container.write("The 2022 Linden State Senate District boundaries are pictured on the left map. The proposed 2024 Crane State Senate District Boundaries are pictured on the right map. The majority of the boundary changes occurred in the Metro Detroit area. Both maps are interactive, containing zoom and selection features.")
-    st.markdown("<h1 style='text-align: center; color:blue; font-size:36px;'>Linden District Boundaries and Crane District Boundaries Against Voting Precincts</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color:#474C6C; font-size:36px;'>Linden District Boundaries and Crane District Boundaries Against Voting Precincts</h1>", unsafe_allow_html=True)
     
     st.plotly_chart(fig, use_container_width=True, height=1200)
     container = st.container(border=True)
