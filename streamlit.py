@@ -11,7 +11,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 st.set_page_config(
-    page_title="Michigan Senate Districts and Voting Precincts Maps",
+    page_title="Michigan House Districts and Voting Precincts Maps",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -26,9 +26,9 @@ def load_shapefile(shapefile_path):
 
 # Load shapefiles with caching
 gdf_linden = load_shapefile("hickory_state_rep_merge.shp")
-gdf_crane = load_shapefile("c074a222edfd3dc6822d0a8e844b8d3f.shp")
-gdf1_crane = load_shapefile("gdf1_crane.shp")
-gdf1_linden = load_shapefile("gdf1_linden.shp")
+gdf_crane = load_shapefile("91b9440a853443918ad4c8dfdf52e495.shp")
+gdf1_crane = load_shapefile("gdf1v2.shp")
+gdf1_linden = load_shapefile("gdf1_hickory.shp")
 
 # Set colors
 gdf_linden['color'] = '#514585'
@@ -40,10 +40,10 @@ fig2 = px.choropleth_mapbox(gdf_linden,
                             locations=gdf_linden.index,
                             mapbox_style="carto-positron",
                             zoom=5,
-                            hover_name="DISTRICTNO",
-                            custom_data=["DISTRICTNO"], 
+                            hover_name="dis",
+                            custom_data=["dis"], 
                             color=gdf_linden['color'],
-                            color_discrete_map={'#514585':'#B078CA', '#800000':'#B078CA'},
+                            color_discrete_map={'#514585':'#6F2A3B', '#800000':'#6F2A3B'},
                             center={"lat": gdf_linden.centroid.y.mean(), "lon": gdf_linden.centroid.x.mean()},
                             opacity=0.5,
                            )
@@ -57,7 +57,7 @@ fig1 = px.choropleth_mapbox(gdf_crane,
                             hover_name="DISTRICTNO",
                             custom_data=["DISTRICTNO"], 
                             color=gdf_crane['color'],
-                            color_discrete_map={'#514585':'#B078CA', '#800000':'#B078CA'},
+                            color_discrete_map={'#514585':'#6F2A3B', '#800000':'#6F2A3B'},
                             center={"lat": gdf_crane.centroid.y.mean(), "lon": gdf_crane.centroid.x.mean()},
                             opacity=0.5,
                            )
@@ -187,7 +187,7 @@ fig2 = px.choropleth_mapbox(gdf1_linden,
                             hover_name="DISTRICTNO",
                             hover_data=["Precinct_L", "DISTRICTNO", "PRECINCTID"],
                             color=gdf1_linden['color'],
-                            color_discrete_map={'#514585':'#8390FA', '#800000':'#800000'},
+                            color_discrete_map={'#514585':'#6F2A3B', '#800000':'#6F2A3B'},
                             center={"lat": gdf1_linden.centroid.y.mean(), "lon": gdf1_linden.centroid.x.mean()},
                             opacity=0.5,
                            )
@@ -200,7 +200,7 @@ fig1 = px.choropleth_mapbox(gdf1_crane,
                             hover_name="DISTRICTNO",
                             hover_data=["Precinct_L", "DISTRICTNO", "PRECINCTID"],
                             color=gdf1_crane['color'],
-                            color_discrete_map={'#514585':'#8390FA', '#800000':'#7B3EB8'},
+                            color_discrete_map={'#514585':'#6F2A3B', '#800000':'#531F2C'},
                             center={"lat": gdf1_crane.centroid.y.mean(), "lon": gdf1_crane.centroid.x.mean()},
                             opacity=0.5,
                            )
@@ -313,9 +313,9 @@ active_tab = st.sidebar.radio("Select Tab", tabs)
 
 # Render Plot tab
 if active_tab == "Map":
-    st.markdown("<h1 style='text-align: center; color:#373F51;'>Michigan State Senate Districts</h1><br>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color:#373F51;'>Michigan State House Districts</h1><br>", unsafe_allow_html=True)
 
-    st.markdown("<h1 style='text-align: center; color:#B078CA; font-size:36px;'>Linden District Boundaries and Crane District Boundaries</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color:#B078CA; font-size:36px;'>Hickory District Boundaries and Motown Sound FC E1 District Boundaries</h1>", unsafe_allow_html=True)
 
     st.plotly_chart(fig3, use_container_width=True, height=1200)
     container = st.container(border=True)
@@ -339,11 +339,11 @@ elif active_tab == "Excel Data":
     
     # Load the selected dataframe
     if df_option == "Linden District Boundaries":
-        df = load_dataframe("gdf1_linden2.xlsx")
-    elif df_option == "Crane District Boundaries":
-        df = load_dataframe("gdf1_crane2.xlsx")
-    else:
-        df = load_dataframe("Crane_Linden_District_Changes.xlsx")
+        df = load_dataframe("gdf1_hickory.xlsx")
+    else: 
+        df = load_dataframe("gdf1v2.xlsx")
+    # else:
+    #     df = load_dataframe("Crane_Linden_District_Changes.xlsx")
     
     # Display the selected dataframe
     st.dataframe(df, width=1000, height=500)
