@@ -334,16 +334,16 @@ elif active_tab == "Excel Data":
     
     df_option = st.selectbox(
         "Select a dataframe",
-        ("Linden District Boundaries", "Crane District Boundaries", "Precincts that Changed Districts")
+        ("Hickory District Boundaries", "Motown Sound FC E1 District Boundaries", "Precincts that Changed Districts")
     )
     
     # Load the selected dataframe
-    if df_option == "Linden District Boundaries":
+    if df_option == "Hickory District Boundaries":
         df = load_dataframe("gdf1_hickory.xlsx")
-    else: 
+    elif df_option == "Motown Sound FC E1 District Boundaries": 
         df = load_dataframe("gdf1v2.xlsx")
-    # else:
-    #     df = load_dataframe("Crane_Linden_District_Changes.xlsx")
+    else:
+        df = load_dataframe("changed_precincts_hickory_motown.xlsx")
     
     # Display the selected dataframe
     st.dataframe(df, width=1000, height=500)
