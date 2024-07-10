@@ -43,7 +43,7 @@ fig2 = px.choropleth_mapbox(gdf_linden,
                             hover_name="dis",
                             custom_data=["dis"], 
                             color=gdf_linden['color'],
-                            color_discrete_map={'#514585':'#4E905F', '#800000':'#4E905F'},
+                            color_discrete_map={'#514585':'#76904E', '#800000':'#76904E'},
                             center={"lat": gdf_linden.centroid.y.mean(), "lon": gdf_linden.centroid.x.mean()},
                             opacity=0.5,
                            )
