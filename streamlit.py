@@ -319,12 +319,12 @@ if active_tab == "Map":
 
     st.plotly_chart(fig3, use_container_width=True, height=1200)
     container = st.container(border=True)
-    container.write("The 2022 Linden State Senate District boundaries are pictured on the left map. The proposed 2024 Crane State Senate District Boundaries are pictured on the right map. The majority of the boundary changes occurred in the Metro Detroit area. Both maps are interactive, containing zoom and selection features.")
-    st.markdown("<h1 style='text-align: center; color:#474C6C; font-size:36px;'>Linden District Boundaries and Crane District Boundaries Against Voting Precincts</h1>", unsafe_allow_html=True)
+    container.write("The 2022 Hickory State House District boundaries are pictured on the left map. The proposed 2024 Motown Sound FC E1 State House District Boundaries are pictured on the right map. The majority of the boundary changes occurred in the Metro Detroit area. Both maps are interactive, containing zoom and selection features.")
+    st.markdown("<h1 style='text-align: center; color:#474C6C; font-size:36px;'>Hickory District Boundaries and Motown Sound FC E1 District Boundaries Against Voting Precincts</h1>", unsafe_allow_html=True)
     
     st.plotly_chart(fig, use_container_width=True, height=1200)
     container = st.container(border=True)
-    container.write("The 2022 Linden State Senate District boundaries are pictured on the left map. The proposed 2024 Crane State Senate District Boundaries are pictured on the right map. The majority of the boundary changes occurred in the Metro Detroit area. Both maps are interactive, containing zoom and selection features. The 2022 voting precincts are mapped as well, and the precincts that changed Senate Districts are highlighted in purple on the Crane map.")
+    container.write("The 2022 Hickory State House District boundaries are pictured on the left map. The proposed 2024 Motown Sound FC E1 State House District Boundaries are pictured on the right map. The majority of the boundary changes occurred in the Metro Detroit area. Both maps are interactive, containing zoom and selection features. The 2022 voting precincts are mapped as well, and the precincts that changed House Districts are highlighted in light green on the right map.")
 
 # Render Data tab
 elif active_tab == "Excel Data":
